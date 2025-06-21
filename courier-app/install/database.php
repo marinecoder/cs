@@ -20,8 +20,8 @@ if($_POST) {
     $db_config = $_SESSION['db_config'];
     
     try {
-        // Connect to database
-        $conn = new mysqli($db_config['host'], $db_config['user'], $db_config['password'], $db_config['name']);
+        // Connect to database with proper error handling
+        $conn = new mysqli($db_config['host'], $db_config['user'], $db_config['password']);
         
         if($conn->connect_error) {
             throw new Exception('Database connection failed: ' . $conn->connect_error);
@@ -30,6 +30,17 @@ if($_POST) {
         // Set charset to avoid encoding issues
         $conn->set_charset("utf8mb4");
         
+        // Create database if it doesn't exist
+        $db_name = $db_config['name'];
+        if(!$conn->query("CREATE DATABASE IF NOT EXISTS `$db_name` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")) {
+            throw new Exception('Failed to create database: ' . $conn->error);
+        }
+        
+        // Select the database
+        if(!$conn->select_db($db_name)) {
+            throw new Exception('Failed to select database: ' . $conn->error);
+        }
+        
         // Create database tables
         $sql = file_get_contents('install.sql');
         
@@ -37,15 +48,17 @@ if($_POST) {
             throw new Exception('Could not read install.sql file');
         }
         
-        // Execute multiple queries
+        // Execute multiple queries with better error handling
         $queries = explode(';', $sql);
         $executed = 0;
         
-        foreach($queries as $query) {
+        foreach($queries as $index => $query) {
             $query = trim($query);
-            if(!empty($query) && !preg_match('/^--/', $query)) {
+            if(!empty($query) && !preg_match('/^--/', $query) && !preg_match('/^\s*$/', $query)) {
                 if(!$conn->query($query)) {
-                    throw new Exception('Database setup failed at query ' . ($executed + 1) . ': ' . $conn->error . "\nQuery: " . substr($query, 0, 100) . '...');
+                    $error_msg = "Database setup failed at query " . ($executed + 1) . " (line " . ($index + 1) . "): " . $conn->error;
+                    $error_msg .= "\nFailed Query: " . $query;
+                    throw new Exception($error_msg);
                 }
                 $executed++;
             }

@@ -379,7 +379,7 @@ INSERT INTO users (email, password, role, name, phone, status) VALUES
 
 -- Sample shipment for demo
 INSERT INTO shipments (tracking_number, user_id, shipment_type_id, sender_name, sender_phone, sender_address, sender_city, receiver_name, receiver_phone, receiver_address, receiver_city, description, weight, total_amount, status) VALUES
-('CD' + LPAD(FLOOR(RAND() * 999999), 6, '0'), 2, 1, 'John Sender', '+1-555-0200', '123 Main St', 'New York', 'Jane Receiver', '+1-555-0201', '456 Oak Ave', 'Boston', 'Sample package for demo', 2.5, 25.50, 'in_transit');
+(CONCAT('CD', LPAD(FLOOR(RAND() * 999999), 6, '0')), 2, 1, 'John Sender', '+1-555-0200', '123 Main St', 'New York', 'Jane Receiver', '+1-555-0201', '456 Oak Ave', 'Boston', 'Sample package for demo', 2.5, 25.50, 'in_transit');
 
 -- Insert sample tracking data
 INSERT INTO shipment_progress (shipment_id, status, description, location) VALUES
