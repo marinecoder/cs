@@ -283,6 +283,17 @@ CREATE TABLE system_settings (
     INDEX idx_key (setting_key)
 );
 
+-- Add legacy settings table for compatibility
+CREATE TABLE settings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    setting_key VARCHAR(100) NOT NULL UNIQUE,
+    setting_value TEXT,
+    description VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_key (setting_key)
+);
+
 -- Audit log for security and tracking
 CREATE TABLE audit_logs (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -343,18 +354,23 @@ INSERT INTO shipment_types (name, description, base_price, price_per_km, max_wei
 ('International', 'International shipping', 50.00, 2.00, 20.00, 168),
 ('Fragile', 'Special handling for fragile items', 30.00, 1.25, 5.00, 48);
 
--- Insert default settings
-INSERT INTO settings (setting_key, setting_value, setting_type, description) VALUES
-('company_name', 'Courier Dash', 'string', 'Company name displayed in the application'),
-('company_email', 'info@courierdash.com', 'string', 'Main company email address'),
-('company_phone', '+1-555-0123', 'string', 'Main company phone number'),
-('currency', 'USD', 'string', 'Default currency for transactions'),
-('timezone', 'America/New_York', 'string', 'Default timezone'),
-('email_notifications', '1', 'boolean', 'Enable email notifications'),
-('sms_notifications', '0', 'boolean', 'Enable SMS notifications'),
-('auto_assign_couriers', '1', 'boolean', 'Automatically assign couriers to shipments'),
-('max_file_upload_size', '10485760', 'integer', 'Maximum file upload size in bytes (10MB)'),
-('tracking_update_interval', '30', 'integer', 'Tracking update interval in minutes');
+-- Insert default system settings
+INSERT INTO system_settings (setting_key, setting_value, description) VALUES
+('app_name', 'Courier Dash', 'Application name'),
+('app_version', '1.0.0', 'Application version'),
+('maintenance_mode', '0', 'Maintenance mode status (0=off, 1=on)'),
+('email_notifications', '1', 'Enable email notifications'),
+('max_upload_size', '10485760', 'Maximum file upload size in bytes'),
+('session_timeout', '7200', 'Session timeout in seconds'),
+('default_currency', 'USD', 'Default currency code'),
+('timezone', 'UTC', 'Default timezone');
+
+-- Insert default settings for compatibility
+INSERT INTO settings (setting_key, setting_value, description) VALUES
+('app_name', 'Courier Dash', 'Application name'),
+('app_version', '1.0.0', 'Application version'),
+('maintenance_mode', '0', 'Maintenance mode status (0=off, 1=on)'),
+('email_notifications', '1', 'Enable email notifications');
 
 -- Sample data for demonstration
 INSERT INTO users (email, password, role, name, phone, status) VALUES

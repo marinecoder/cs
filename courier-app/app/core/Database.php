@@ -7,13 +7,18 @@ class Database {
     private function __construct() {
         require_once __DIR__.'/../../config.php';
         
+        $charset = defined('DB_CHARSET') ? DB_CHARSET : 'utf8mb4';
+        
         $this->connection = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         
         if($this->connection->connect_error) {
             throw new Exception('Database connection failed: ' . $this->connection->connect_error);
         }
         
-        $this->connection->set_charset('utf8mb4');
+        $this->connection->set_charset($charset);
+        
+        // Set SQL mode for better compatibility
+        $this->connection->query("SET sql_mode = 'STRICT_TRANS_TABLES,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO'");
     }
     
     public static function getInstance(): Database {
