@@ -336,6 +336,38 @@ class UserController {
         ]);
     }
     
+    public function addresses() {
+        $user = Auth::getCurrentUser();
+        
+        // Get user's saved addresses
+        $addresses = $this->db->query(
+            "SELECT * FROM user_addresses WHERE user_id = ? ORDER BY is_default DESC, created_at DESC",
+            [$user['id']]
+        );
+        
+        Router::renderWithLayout('user/addresses', [
+            'title' => 'Address Book',
+            'pageTitle' => 'Address Book',
+            'addresses' => $addresses
+        ]);
+    }
+    
+    public function support() {
+        $user = Auth::getCurrentUser();
+        
+        // Get user's support tickets
+        $tickets = $this->db->query(
+            "SELECT * FROM support_tickets WHERE user_id = ? ORDER BY created_at DESC",
+            [$user['id']]
+        );
+        
+        Router::renderWithLayout('user/support', [
+            'title' => 'Support Center',
+            'pageTitle' => 'Support Center',
+            'tickets' => $tickets
+        ]);
+    }
+
     public function apiNotifications() {
         if(!Router::isAjax()) {
             http_response_code(400);

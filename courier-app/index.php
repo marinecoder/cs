@@ -146,6 +146,18 @@ $router->get('/profile', function() {
     $controller->profile();
 });
 
+$router->get('/addresses', function() {
+    Auth::requireLogin();
+    $controller = new UserController();
+    $controller->addresses();
+});
+
+$router->get('/support', function() {
+    Auth::requireLogin();
+    $controller = new UserController();
+    $controller->support();
+});
+
 // Admin routes
 $router->get('/admin/dashboard', function() {
     Auth::requirePermission('analytics_view');

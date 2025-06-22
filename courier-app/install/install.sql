@@ -346,6 +346,65 @@ CREATE TABLE financial_summaries (
     INDEX idx_date (date)
 );
 
+-- User addresses table
+CREATE TABLE user_addresses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    label VARCHAR(100) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    address_line_1 TEXT NOT NULL,
+    address_line_2 TEXT,
+    city VARCHAR(100) NOT NULL,
+    state VARCHAR(100) NOT NULL,
+    postal_code VARCHAR(20) NOT NULL,
+    phone VARCHAR(50),
+    is_default BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    INDEX idx_user (user_id),
+    INDEX idx_default (is_default)
+);
+
+-- Support tickets table
+CREATE TABLE support_tickets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    subject VARCHAR(255) NOT NULL,
+    category ENUM('delivery', 'payment', 'tracking', 'damage', 'other') DEFAULT 'other',
+    priority ENUM('low', 'medium', 'high', 'urgent') DEFAULT 'medium',
+    status ENUM('open', 'in_progress', 'waiting_customer', 'closed') DEFAULT 'open',
+    tracking_number VARCHAR(50),
+    description TEXT NOT NULL,
+    assigned_to INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    closed_at TIMESTAMP NULL,
+    
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (assigned_to) REFERENCES users(id),
+    INDEX idx_user (user_id),
+    INDEX idx_status (status),
+    INDEX idx_priority (priority),
+    INDEX idx_created (created_at)
+);
+
+-- Support ticket messages table
+CREATE TABLE support_messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ticket_id INT NOT NULL,
+    sender_id INT NOT NULL,
+    message TEXT NOT NULL,
+    is_internal BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (ticket_id) REFERENCES support_tickets(id) ON DELETE CASCADE,
+    FOREIGN KEY (sender_id) REFERENCES users(id),
+    INDEX idx_ticket (ticket_id),
+    INDEX idx_created (created_at)
+);
+
 -- Insert default shipment types
 INSERT INTO shipment_types (name, description, base_price, price_per_km, max_weight, delivery_time_hours) VALUES
 ('Standard', 'Regular delivery within 2-3 business days', 15.00, 0.50, 10.00, 72),
