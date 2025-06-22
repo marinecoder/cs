@@ -11,7 +11,9 @@ require_once 'app/core/Auth.php';
 require_once 'app/core/Router.php';
 require_once 'app/controllers/AdminController.php';
 require_once 'app/controllers/UserController.php';
+require_once 'app/controllers/CourierController.php';
 require_once 'app/controllers/ApiController.php';
+require_once 'app/controllers/CourierController.php';
 
 // Start session and initialize CSRF protection
 Auth::startSession();
@@ -156,6 +158,43 @@ $router->get('/support', function() {
     Auth::requireLogin();
     $controller = new UserController();
     $controller->support();
+});
+
+// Courier routes
+$router->get('/courier/dashboard', function() {
+    Auth::requirePermission('shipment_view_assigned');
+    $controller = new CourierController();
+    $controller->dashboard();
+});
+
+$router->get('/courier/routes', function() {
+    Auth::requirePermission('route_view');
+    $controller = new CourierController();
+    $controller->routes();
+});
+
+$router->get('/courier/shipments', function() {
+    Auth::requirePermission('shipment_view_assigned');
+    $controller = new CourierController();
+    $controller->shipments();
+});
+
+$router->get('/courier/history', function() {
+    Auth::requirePermission('shipment_view_assigned');
+    $controller = new CourierController();
+    $controller->history();
+});
+
+$router->get('/courier/profile', function() {
+    Auth::requireLogin();
+    $controller = new CourierController();
+    $controller->profile();
+});
+
+$router->post('/courier/update-status', function() {
+    Auth::requirePermission('shipment_update_status');
+    $controller = new CourierController();
+    $controller->updateShipmentStatus();
 });
 
 // Admin routes
