@@ -70,6 +70,23 @@ if($_POST) {
         $stmt->bind_param('sss', $admin_email, $password_hash, $company_name);
         $stmt->execute();
         
+        // Create demo accounts for testing
+        $demo_password = password_hash('demo123', PASSWORD_DEFAULT);
+        
+        // Demo User Account
+        $demo_user_email = 'user@demo.com';
+        $demo_user_name = 'Demo User';
+        $stmt = $conn->prepare("INSERT INTO users (email, password, role, name, status, created_at) VALUES (?, ?, 'USER', ?, 'active', NOW())");
+        $stmt->bind_param('sss', $demo_user_email, $demo_password, $demo_user_name);
+        $stmt->execute();
+        
+        // Demo Courier Account
+        $demo_courier_email = 'courier@demo.com';
+        $demo_courier_name = 'Demo Courier';
+        $stmt = $conn->prepare("INSERT INTO users (email, password, role, name, status, created_at) VALUES (?, ?, 'COURIER', ?, 'active', NOW())");
+        $stmt->bind_param('sss', $demo_courier_email, $demo_password, $demo_courier_name);
+        $stmt->execute();
+
         // Create config.php
         $config_content = "<?php\n";
         $config_content .= "// Auto-generated configuration file\n";

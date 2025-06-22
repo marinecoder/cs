@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Quote - CourierDash</title>
+    <meta name="description" content="Get an instant quote for your delivery needs. Fast, accurate pricing for all package sizes and delivery speeds.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .form-section { transition: all 0.3s ease; }
+        .step-indicator { transition: all 0.3s ease; }
+        .step-indicator.active { background-color: #2563eb; color: white; }
+        .step-indicator.completed { background-color: #10b981; color: white; }
+        .quote-card { animation: slideIn 0.5s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <i class="fas fa-shipping-fast text-3xl text-blue-600 mr-3"></i>
+                    <span class="text-2xl font-bold text-gray-800">CourierDash</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Home</a>
+                    <a href="services.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Services</a>
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Pricing</a>
+                    <a href="tracking.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Track Package</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600 transition duration-300">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Contact</a>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="../index.php" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Get Instant Quote</h1>
+            <p class="text-xl mb-8">Calculate shipping costs in seconds with our smart pricing tool</p>
+        </div>
+    </section>
+
+    <!-- Quote Form -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4">
+            <!-- Step Indicator -->
+            <div class="flex justify-center mb-12">
+                <div class="flex items-center space-x-4">
+                    <div class="step-indicator active flex items-center justify-center w-10 h-10 rounded-full bg-gray-300 text-gray-600 font-bold">
+                        1
+                    </div>
+                    <div class="w-16 h-1 bg-gray-300"></div>
+                    <div class="step-indicator flex items-center justify-center w-10 h-10 rounded-full bg-gray-300 text-gray-600 font-bold">
+                        2
+                    </div>
+                    <div class="w-16 h-1 bg-gray-300"></div>
+                    <div class="step-indicator flex items-center justify-center w-10 h-10 rounded-full bg-gray-300 text-gray-600 font-bold">
+                        3
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <form id="quoteForm" class="space-y-8">
+                    <!-- Step 1: Addresses -->
+                    <div id="step1" class="form-section">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Pickup & Delivery Addresses</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <!-- Pickup Address -->
+                            <div class="space-y-4">
+                                <h3 class="text-xl font-semibold text-gray-700 flex items-center">
+                                    <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
+                                    Pickup Address
+                                </h3>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Street Address</label>
+                                    <input type="text" id="pickupAddress" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="123 Main Street">
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">City</label>
+                                        <input type="text" id="pickupCity" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="New York">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">State</label>
+                                        <select id="pickupState" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                            <option value="">Select State</option>
+                                            <option value="AL">Alabama</option>
+                                            <option value="CA">California</option>
+                                            <option value="FL">Florida</option>
+                                            <option value="NY">New York</option>
+                                            <option value="TX">Texas</option>
+                                            <!-- Add more states as needed -->
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">ZIP Code</label>
+                                    <input type="text" id="pickupZip" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="10001">
+                                </div>
+                            </div>
+
+                            <!-- Delivery Address -->
+                            <div class="space-y-4">
+                                <h3 class="text-xl font-semibold text-gray-700 flex items-center">
+                                    <i class="fas fa-home text-green-600 mr-2"></i>
+                                    Delivery Address
+                                </h3>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Street Address</label>
+                                    <input type="text" id="deliveryAddress" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="456 Oak Avenue">
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">City</label>
+                                        <input type="text" id="deliveryCity" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Los Angeles">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">State</label>
+                                        <select id="deliveryState" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                            <option value="">Select State</option>
+                                            <option value="AL">Alabama</option>
+                                            <option value="CA">California</option>
+                                            <option value="FL">Florida</option>
+                                            <option value="NY">New York</option>
+                                            <option value="TX">Texas</option>
+                                            <!-- Add more states as needed -->
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">ZIP Code</label>
+                                    <input type="text" id="deliveryZip" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="90001">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Package Details -->
+                    <div id="step2" class="form-section hidden">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Package Details</h2>
+                        
+                        <div class="space-y-6">
+                            <!-- Package Type -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-4">Package Type</label>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    <div class="package-type border-2 border-gray-300 rounded-lg p-4 text-center cursor-pointer hover:border-blue-500 transition duration-300" data-type="envelope">
+                                        <i class="fas fa-envelope text-3xl text-blue-600 mb-2"></i>
+                                        <p class="font-medium">Envelope</p>
+                                        <p class="text-sm text-gray-500">Up to 1 lb</p>
+                                    </div>
+                                    <div class="package-type border-2 border-gray-300 rounded-lg p-4 text-center cursor-pointer hover:border-blue-500 transition duration-300" data-type="small">
+                                        <i class="fas fa-box text-3xl text-green-600 mb-2"></i>
+                                        <p class="font-medium">Small Box</p>
+                                        <p class="text-sm text-gray-500">Up to 10 lbs</p>
+                                    </div>
+                                    <div class="package-type border-2 border-gray-300 rounded-lg p-4 text-center cursor-pointer hover:border-blue-500 transition duration-300" data-type="medium">
+                                        <i class="fas fa-cube text-3xl text-yellow-600 mb-2"></i>
+                                        <p class="font-medium">Medium Box</p>
+                                        <p class="text-sm text-gray-500">Up to 50 lbs</p>
+                                    </div>
+                                    <div class="package-type border-2 border-gray-300 rounded-lg p-4 text-center cursor-pointer hover:border-blue-500 transition duration-300" data-type="large">
+                                        <i class="fas fa-cubes text-3xl text-red-600 mb-2"></i>
+                                        <p class="font-medium">Large Box</p>
+                                        <p class="text-sm text-gray-500">Up to 150 lbs</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dimensions & Weight -->
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="space-y-4">
+                                    <h3 class="text-lg font-semibold text-gray-700">Dimensions (inches)</h3>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Length</label>
+                                            <input type="number" id="length" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="12">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Width</label>
+                                            <input type="number" id="width" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="8">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Height</label>
+                                            <input type="number" id="height" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="6">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <h3 class="text-lg font-semibold text-gray-700">Weight & Value</h3>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Weight (lbs)</label>
+                                        <input type="number" id="weight" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="5">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Declared Value ($)</label>
+                                        <input type="number" id="value" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="100">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Special Instructions -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Special Instructions (Optional)</label>
+                                <textarea id="instructions" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Fragile items, signature required, etc."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Delivery Options -->
+                    <div id="step3" class="form-section hidden">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Delivery Options</h2>
+                        
+                        <div class="space-y-6">
+                            <!-- Delivery Speed -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-4">Delivery Speed</label>
+                                <div class="space-y-4">
+                                    <div class="delivery-option border-2 border-gray-300 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition duration-300" data-speed="same-day">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <h4 class="font-semibold text-lg">Same Day</h4>
+                                                <p class="text-gray-600">Delivered within 2-4 hours</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <p class="text-2xl font-bold text-blue-600">$45.99</p>
+                                                <p class="text-sm text-gray-500">+ base rate</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="delivery-option border-2 border-gray-300 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition duration-300" data-speed="express">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <h4 class="font-semibold text-lg">Express</h4>
+                                                <p class="text-gray-600">Next business day</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <p class="text-2xl font-bold text-green-600">$19.99</p>
+                                                <p class="text-sm text-gray-500">+ base rate</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="delivery-option border-2 border-gray-300 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition duration-300" data-speed="standard">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <h4 class="font-semibold text-lg">Standard</h4>
+                                                <p class="text-gray-600">2-3 business days</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <p class="text-2xl font-bold text-gray-600">$9.99</p>
+                                                <p class="text-sm text-gray-500">+ base rate</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Additional Services -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-4">Additional Services</label>
+                                <div class="space-y-3">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                        <span>Signature Required (+$2.99)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                        <span>Insurance Coverage (+$5.99)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                        <span>SMS Notifications (+$1.99)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between pt-8">
+                        <button type="button" id="prevBtn" class="bg-gray-500 text-white px-8 py-3 rounded-lg hover:bg-gray-600 transition duration-300 hidden">
+                            Previous
+                        </button>
+                        <button type="button" id="nextBtn" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition duration-300 ml-auto">
+                            Next
+                        </button>
+                        <button type="button" id="calculateBtn" class="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition duration-300 ml-auto hidden">
+                            Calculate Quote
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Quote Results -->
+            <div id="quoteResults" class="hidden mt-12">
+                <div class="quote-card bg-white rounded-2xl shadow-xl p-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Your Quote</h2>
+                    
+                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-xl mb-8">
+                        <div class="text-center">
+                            <p class="text-lg mb-2">Total Estimated Cost</p>
+                            <p class="text-5xl font-bold mb-4" id="totalCost">$29.98</p>
+                            <p class="text-sm opacity-90">All taxes and fees included</p>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Cost Breakdown</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Base shipping rate:</span>
+                                    <span>$9.99</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Delivery speed:</span>
+                                    <span>$19.99</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Additional services:</span>
+                                    <span>$0.00</span>
+                                </div>
+                                <div class="border-t pt-2 font-semibold flex justify-between">
+                                    <span>Total:</span>
+                                    <span>$29.98</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Shipment Summary</h3>
+                            <div class="space-y-2 text-sm">
+                                <p><strong>From:</strong> New York, NY 10001</p>
+                                <p><strong>To:</strong> Los Angeles, CA 90001</p>
+                                <p><strong>Package:</strong> Small Box (5 lbs)</p>
+                                <p><strong>Delivery:</strong> Express (Next business day)</p>
+                                <p><strong>Estimated Delivery:</strong> Tomorrow by 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center space-x-4">
+                        <a href="../index.php" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition duration-300 inline-block">
+                            Book This Shipment
+                        </a>
+                        <button type="button" onclick="resetForm()" class="bg-gray-500 text-white px-8 py-3 rounded-lg hover:bg-gray-600 transition duration-300">
+                            New Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shipping-fast text-2xl text-blue-400 mr-2"></i>
+                        <span class="text-xl font-bold">CourierDash</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Fast, reliable courier services with real-time tracking and secure delivery.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="services.html" class="hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="pricing.html" class="hover:text-white transition duration-300">Pricing</a></li>
+                        <li><a href="tracking.html" class="hover:text-white transition duration-300">Track Package</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="help.html" class="hover:text-white transition duration-300">Help Center</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition duration-300">FAQ</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition duration-300">Contact Us</a></li>
+                        <li><a href="privacy.html" class="hover:text-white transition duration-300">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-phone mr-2"></i> 1-800-COURIER</p>
+                        <p><i class="fas fa-envelope mr-2"></i> support@courierdash.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> 123 Delivery St, City, State 12345</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 CourierDash. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        function showStep(step) {
+            // Hide all steps
+            for (let i = 1; i <= totalSteps; i++) {
+                document.getElementById(`step${i}`).classList.add('hidden');
+            }
+            
+            // Show current step
+            document.getElementById(`step${step}`).classList.remove('hidden');
+            
+            // Update step indicators
+            const indicators = document.querySelectorAll('.step-indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.remove('active', 'completed');
+                if (index + 1 < step) {
+                    indicator.classList.add('completed');
+                } else if (index + 1 === step) {
+                    indicator.classList.add('active');
+                }
+            });
+            
+            // Update buttons
+            document.getElementById('prevBtn').classList.toggle('hidden', step === 1);
+            document.getElementById('nextBtn').classList.toggle('hidden', step === totalSteps);
+            document.getElementById('calculateBtn').classList.toggle('hidden', step !== totalSteps);
+        }
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        });
+
+        document.getElementById('calculateBtn').addEventListener('click', () => {
+            // Simulate quote calculation
+            document.getElementById('quoteForm').classList.add('hidden');
+            document.getElementById('quoteResults').classList.remove('hidden');
+        });
+
+        function resetForm() {
+            currentStep = 1;
+            showStep(currentStep);
+            document.getElementById('quoteForm').classList.remove('hidden');
+            document.getElementById('quoteResults').classList.add('hidden');
+        }
+
+        // Package type selection
+        document.querySelectorAll('.package-type').forEach(element => {
+            element.addEventListener('click', () => {
+                document.querySelectorAll('.package-type').forEach(el => el.classList.remove('border-blue-500', 'bg-blue-50'));
+                element.classList.add('border-blue-500', 'bg-blue-50');
+            });
+        });
+
+        // Delivery option selection
+        document.querySelectorAll('.delivery-option').forEach(element => {
+            element.addEventListener('click', () => {
+                document.querySelectorAll('.delivery-option').forEach(el => el.classList.remove('border-blue-500', 'bg-blue-50'));
+                element.classList.add('border-blue-500', 'bg-blue-50');
+            });
+        });
+
+        // Initialize
+        showStep(currentStep);
+    </script>
+</body>
+</html>

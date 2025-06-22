@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Package - CourierDash</title>
+    <meta name="description" content="Track your package in real-time with our advanced tracking system.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <i class="fas fa-shipping-fast text-3xl text-blue-600 mr-3"></i>
+                    <span class="text-2xl font-bold text-gray-800">CourierDash</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Home</a>
+                    <a href="services.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Services</a>
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Pricing</a>
+                    <a href="tracking.html" class="text-blue-600 font-semibold">Track Package</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600 transition duration-300">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Contact</a>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="../index.php" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Login</a>
+                    <a href="quote.html" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition duration-300">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Track Your Package</h1>
+            <p class="text-xl opacity-90">Enter your tracking number to see real-time updates</p>
+        </div>
+    </section>
+
+    <!-- Tracking Form -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Enter Tracking Number</h2>
+                    <p class="text-gray-600">Track your package with the tracking number provided in your confirmation email</p>
+                </div>
+                
+                <form class="max-w-2xl mx-auto" onsubmit="trackPackage(event)">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input 
+                            type="text" 
+                            id="trackingNumber"
+                            placeholder="Enter tracking number (e.g., CD123456)" 
+                            class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+                            required
+                        >
+                        <button 
+                            type="submit" 
+                            class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold"
+                        >
+                            <i class="fas fa-search mr-2"></i>Track Package
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-6 text-center text-sm text-gray-500">
+                    <p>Don't have a tracking number? <a href="contact.html" class="text-blue-600 hover:underline">Contact our support team</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Tracking Results -->
+    <section class="pb-20" id="trackingResults" style="display: none;">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-blue-600 text-white p-6">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-xl font-bold">Tracking #CD123456</h3>
+                            <p class="opacity-90">Express Delivery</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-lg font-semibold">In Transit</div>
+                            <div class="text-sm opacity-90">Expected: Tomorrow</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-6">
+                    <!-- Package Info -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-2">From:</h4>
+                            <p class="text-gray-600">
+                                John Sender<br>
+                                123 Main Street<br>
+                                New York, NY 10001
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-2">To:</h4>
+                            <p class="text-gray-600">
+                                Jane Receiver<br>
+                                456 Oak Avenue<br>
+                                Boston, MA 02101
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Progress Timeline -->
+                    <div class="relative">
+                        <h4 class="font-semibold text-gray-900 mb-6">Tracking Progress</h4>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-green-500 w-4 h-4 rounded-full flex-shrink-0 mt-1"></div>
+                                <div class="ml-4 flex-1">
+                                    <div class="flex justify-between">
+                                        <span class="font-semibold text-green-600">Package Picked Up</span>
+                                        <span class="text-sm text-gray-500">Dec 20, 10:30 AM</span>
+                                    </div>
+                                    <p class="text-gray-600 mt-1">Package collected from sender</p>
+                                    <p class="text-sm text-gray-500">New York Distribution Center</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start border-l-2 border-gray-200 ml-2 pl-6">
+                                <div class="bg-green-500 w-4 h-4 rounded-full flex-shrink-0 mt-1 -ml-8"></div>
+                                <div class="ml-4 flex-1">
+                                    <div class="flex justify-between">
+                                        <span class="font-semibold text-green-600">In Transit</span>
+                                        <span class="text-sm text-gray-500">Dec 20, 2:15 PM</span>
+                                    </div>
+                                    <p class="text-gray-600 mt-1">Package departed from facility</p>
+                                    <p class="text-sm text-gray-500">On route to Boston Hub</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start border-l-2 border-gray-200 ml-2 pl-6">
+                                <div class="bg-blue-500 w-4 h-4 rounded-full flex-shrink-0 mt-1 -ml-8 animate-pulse"></div>
+                                <div class="ml-4 flex-1">
+                                    <div class="flex justify-between">
+                                        <span class="font-semibold text-blue-600">Currently in Transit</span>
+                                        <span class="text-sm text-gray-500">Dec 20, 6:45 PM</span>
+                                    </div>
+                                    <p class="text-gray-600 mt-1">Package is on its way to destination</p>
+                                    <p class="text-sm text-gray-500">Boston Hub</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start border-l-2 border-gray-200 ml-2 pl-6">
+                                <div class="bg-gray-300 w-4 h-4 rounded-full flex-shrink-0 mt-1 -ml-8"></div>
+                                <div class="ml-4 flex-1">
+                                    <div class="flex justify-between">
+                                        <span class="font-semibold text-gray-500">Out for Delivery</span>
+                                        <span class="text-sm text-gray-500">Expected: Dec 21, 9:00 AM</span>
+                                    </div>
+                                    <p class="text-gray-600 mt-1">Package will be out for delivery</p>
+                                    <p class="text-sm text-gray-500">Local delivery vehicle</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start border-l-2 border-gray-200 ml-2 pl-6">
+                                <div class="bg-gray-300 w-4 h-4 rounded-full flex-shrink-0 mt-1 -ml-8"></div>
+                                <div class="ml-4 flex-1">
+                                    <div class="flex justify-between">
+                                        <span class="font-semibold text-gray-500">Delivered</span>
+                                        <span class="text-sm text-gray-500">Expected: Dec 21, 12:00 PM</span>
+                                    </div>
+                                    <p class="text-gray-600 mt-1">Package delivered to recipient</p>
+                                    <p class="text-sm text-gray-500">Delivery address</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Map placeholder -->
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-gray-900 mb-4">Live Location</h4>
+                        <div class="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg h-64 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-map-marked-alt text-4xl text-gray-400 mb-2"></i>
+                                <p class="text-gray-500">Live map tracking would appear here</p>
+                                <p class="text-sm text-gray-400">Real-time GPS location updates</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Section -->
+                    <div class="mt-8 bg-gray-50 p-6 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Need Help?</h4>
+                                <p class="text-gray-600">Contact our support team for assistance</p>
+                            </div>
+                            <div class="flex space-x-4">
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                    <i class="fas fa-phone mr-2"></i>Call Support
+                                </button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                                    <i class="fas fa-comment mr-2"></i>Live Chat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Advanced Tracking Features</h2>
+                <p class="text-xl text-gray-600">Stay informed every step of the way</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-satellite text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Real-Time GPS</h3>
+                    <p class="text-gray-600">Live location updates with GPS tracking</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bell text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Smart Notifications</h3>
+                    <p class="text-gray-600">SMS and email alerts for status updates</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Delivery Time</h3>
+                    <p class="text-gray-600">Accurate delivery time predictions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shipping-fast text-2xl text-blue-400 mr-3"></i>
+                        <span class="text-xl font-bold">CourierDash</span>
+                    </div>
+                    <p class="text-gray-400">Professional courier services with reliable delivery solutions nationwide.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white">Services</a></li>
+                        <li><a href="pricing.html" class="text-gray-400 hover:text-white">Pricing</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="help.html" class="text-gray-400 hover:text-white">Help Center</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-white">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <div><i class="fas fa-phone mr-2"></i> +1 (555) 123-4567</div>
+                        <div><i class="fas fa-envelope mr-2"></i> info@courierdash.com</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 CourierDash. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function trackPackage(event) {
+            event.preventDefault();
+            const trackingNumber = document.getElementById('trackingNumber').value;
+            
+            if (trackingNumber) {
+                // Show demo results
+                document.getElementById('trackingResults').style.display = 'block';
+                document.getElementById('trackingResults').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>

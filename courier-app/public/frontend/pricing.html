@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - CourierDash</title>
+    <meta name="description" content="Transparent pricing for all delivery services. Compare our rates and choose the best option for your needs.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <i class="fas fa-shipping-fast text-3xl text-blue-600 mr-3"></i>
+                    <span class="text-2xl font-bold text-gray-800">CourierDash</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Home</a>
+                    <a href="services.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Services</a>
+                    <a href="pricing.html" class="text-blue-600 font-semibold">Pricing</a>
+                    <a href="tracking.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Track Package</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600 transition duration-300">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Contact</a>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="../index.php" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Login</a>
+                    <a href="quote.html" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition duration-300">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-green-600 to-blue-600 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Simple & Transparent Pricing</h1>
+            <p class="text-xl opacity-90">No hidden fees. Pay only for what you need.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Tables -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Standard Plan -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="bg-blue-500 text-white p-6 text-center">
+                        <h3 class="text-2xl font-bold mb-2">Standard</h3>
+                        <p class="opacity-90">Perfect for regular shipments</p>
+                        <div class="text-4xl font-bold mt-4">$15</div>
+                        <div class="text-sm opacity-75">starting price</div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>2-3 business days delivery</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Package tracking</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Email notifications</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Up to 10kg weight</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Basic insurance ($100)</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Customer support</li>
+                        </ul>
+                        <a href="quote.html" class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition duration-300 block text-center">
+                            Choose Standard
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Express Plan -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300 border-4 border-green-500 relative">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <span class="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-semibold">Most Popular</span>
+                    </div>
+                    <div class="bg-green-500 text-white p-6 text-center">
+                        <h3 class="text-2xl font-bold mb-2">Express</h3>
+                        <p class="opacity-90">Fast delivery when you need it</p>
+                        <div class="text-4xl font-bold mt-4">$25</div>
+                        <div class="text-sm opacity-75">starting price</div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Same-day or next-day delivery</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Real-time tracking</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>SMS & email notifications</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Up to 5kg weight</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Enhanced insurance ($500)</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Priority support</li>
+                        </ul>
+                        <a href="quote.html" class="w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition duration-300 block text-center">
+                            Choose Express
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="bg-purple-500 text-white p-6 text-center">
+                        <h3 class="text-2xl font-bold mb-2">Premium</h3>
+                        <p class="opacity-90">White-glove service</p>
+                        <div class="text-4xl font-bold mt-4">$50</div>
+                        <div class="text-sm opacity-75">starting price</div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Guaranteed delivery time</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Live GPS tracking</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Personal delivery manager</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>No weight restrictions</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Full insurance coverage</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>24/7 dedicated support</li>
+                        </ul>
+                        <a href="quote.html" class="w-full bg-purple-500 text-white py-3 rounded-lg hover:bg-purple-600 transition duration-300 block text-center">
+                            Choose Premium
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Distance-Based Pricing -->
+    <section class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Distance-Based Pricing</h2>
+                <p class="text-xl text-gray-600">Fair pricing based on delivery distance</p>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Distance</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Standard</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Express</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Premium</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">0-10 km</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$15</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$25</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$50</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">11-50 km</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$20</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$35</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$65</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">51-100 km</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$30</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$50</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$85</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">101-500 km</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$45</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$75</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$120</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">500+ km</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$65</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$100</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$150</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Additional Services</h2>
+                <p class="text-xl text-gray-600">Extra services to meet your specific needs</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <i class="fas fa-shield-alt text-3xl text-blue-600 mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Extra Insurance</h3>
+                    <p class="text-gray-600 mb-4">Additional coverage for valuable items</p>
+                    <div class="text-xl font-bold text-blue-600">2% of value</div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <i class="fas fa-signature text-3xl text-green-600 mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Signature Required</h3>
+                    <p class="text-gray-600 mb-4">Require signature on delivery</p>
+                    <div class="text-xl font-bold text-green-600">+$5</div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <i class="fas fa-calendar-alt text-3xl text-purple-600 mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Scheduled Delivery</h3>
+                    <p class="text-gray-600 mb-4">Choose specific delivery time</p>
+                    <div class="text-xl font-bold text-purple-600">+$10</div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <i class="fas fa-box text-3xl text-orange-600 mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Special Packaging</h3>
+                    <p class="text-gray-600 mb-4">Custom packaging for fragile items</p>
+                    <div class="text-xl font-bold text-orange-600">+$15</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="bg-blue-600 text-white py-20">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Calculate Your Shipping Cost</h2>
+                <p class="text-xl opacity-90">Get an instant quote for your shipment</p>
+            </div>
+            
+            <div class="bg-white text-gray-800 p-8 rounded-lg">
+                <form class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">From (City)</label>
+                        <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter pickup city">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">To (City)</label>
+                        <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter delivery city">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Weight (kg)</label>
+                        <input type="number" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Package weight">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Service Type</label>
+                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option>Standard Delivery</option>
+                            <option>Express Delivery</option>
+                            <option>Premium Service</option>
+                        </select>
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <button type="button" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold">
+                            Calculate Price
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-6 p-4 bg-gray-100 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-blue-600">Estimated Cost: $--</div>
+                    <p class="text-sm text-gray-600 mt-2">Enter details above to see pricing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Pricing FAQ</h2>
+                <p class="text-xl text-gray-600">Common questions about our pricing</p>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-2">Are there any hidden fees?</h3>
+                    <p class="text-gray-600">No, our pricing is completely transparent. The price you see is what you pay.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-2">Do you offer volume discounts?</h3>
+                    <p class="text-gray-600">Yes, we offer discounts for bulk shipments. Contact us for custom pricing.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-2">What payment methods do you accept?</h3>
+                    <p class="text-gray-600">We accept all major credit cards, PayPal, and bank transfers for business accounts.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-2">Can I get a refund if my package is delayed?</h3>
+                    <p class="text-gray-600">Yes, we offer refunds or credits for delayed deliveries depending on the service level.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shipping-fast text-2xl text-blue-400 mr-3"></i>
+                        <span class="text-xl font-bold">CourierDash</span>
+                    </div>
+                    <p class="text-gray-400">Professional courier services with reliable delivery solutions nationwide.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white">Services</a></li>
+                        <li><a href="tracking.html" class="text-gray-400 hover:text-white">Track Package</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-400 hover:text-white">Express Delivery</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white">Standard Shipping</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white">International</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white">Bulk Orders</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <div><i class="fas fa-phone mr-2"></i> +1 (555) 123-4567</div>
+                        <div><i class="fas fa-envelope mr-2"></i> info@courierdash.com</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 CourierDash. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple price calculator
+        function calculatePrice() {
+            // This would connect to your backend API
+            const result = document.querySelector('.text-2xl.font-bold.text-blue-600');
+            result.textContent = 'Estimated Cost: $25.00';
+        }
+    </script>
+</body>
+</html>

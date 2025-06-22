@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - CourierDash</title>
+    <meta name="description" content="Frequently asked questions about CourierDash delivery services. Find quick answers to common questions.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .faq-item { transition: all 0.3s ease; }
+        .faq-item.active { background-color: #f8fafc; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-answer.open { max-height: 200px; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <i class="fas fa-shipping-fast text-3xl text-blue-600 mr-3"></i>
+                    <span class="text-2xl font-bold text-gray-800">CourierDash</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Home</a>
+                    <a href="services.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Services</a>
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Pricing</a>
+                    <a href="tracking.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Track Package</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600 transition duration-300">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Contact</a>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="../index.php" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Frequently Asked Questions</h1>
+            <p class="text-xl mb-8">Find quick answers to the most common questions about our services</p>
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4">
+            <!-- General Questions -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">General Questions</h2>
+                
+                <div class="space-y-4">
+                    <div class="faq-item bg-white rounded-lg shadow-md">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-semibold text-gray-800">What is CourierDash?</span>
+                            <i class="fas fa-chevron-down text-gray-500 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">CourierDash is a professional courier and delivery service platform that provides fast, reliable, and secure package delivery with real-time tracking. We connect customers with verified couriers for same-day, next-day, and scheduled deliveries across the country.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-lg shadow-md">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-semibold text-gray-800">How do I create an account?</span>
+                            <i class="fas fa-chevron-down text-gray-500 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">Creating an account is simple. Click on the "Login" button in the top navigation, then select "Register" to create your free account. You'll need to provide basic information like your name, email, and phone number.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-lg shadow-md">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-semibold text-gray-800">What areas do you serve?</span>
+                            <i class="fas fa-chevron-down text-gray-500 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">We provide delivery services nationwide, with same-day delivery available in major metropolitan areas. Express delivery is available in most cities, and standard delivery covers all areas within the continental United States.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping & Delivery -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Shipping & Delivery</h2>
+                
+                <div class="space-y-4">
+                    <div class="faq-item bg-white rounded-lg shadow-md">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-semibold text-gray-800">How fast can you deliver my package?</span>
+                            <i class="fas fa-chevron-down text-gray-500 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">We offer multiple delivery options: Same-day delivery (within 2-4 hours in major cities), Express delivery (next business day), Standard delivery (2-3 business days), and Scheduled delivery (choose your preferred date and time).</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-lg shadow-md">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-semibold text-gray-800">What size packages can you handle?</span>
+                            <i class="fas fa-chevron-down text-gray-500 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">We handle packages from small envelopes to large items up to 150 lbs. Maximum dimensions are 48" x 48" x 48". For oversized or specialty items, please contact our customer service team for custom solutions.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-lg shadow-md">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-semibold text-gray-800">How do I track my package?</span>
+                            <i class="fas fa-chevron-down text-gray-500 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">You can track your package using your tracking number on our tracking page, through your account dashboard, or via SMS/email notifications. Real-time updates include pickup, transit, and delivery confirmation.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-lg shadow-md">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-semibold text-gray-800">What if no one is available to receive the package?</span>
+                            <i class="fas fa-chevron-down text-gray-500 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">If no one is available, we'll leave a delivery notice and attempt redelivery the next business day. You can also provide delivery instructions, authorize safe drop-off locations, or schedule a specific delivery time that works for you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing & Payment -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Pricing & Payment</h2>
+                
+                <div class="space-y-4">
+                    <div class="faq-item bg-white rounded-lg shadow-md">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-semibold text-gray-800">How is shipping cost calculated?</span>
+                            <i class="fas fa-chevron-down text-gray-500 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">Shipping cost is based on package size, weight, distance, and delivery speed. You can get an instant quote using our pricing calculator. We also offer volume discounts for business customers and regular shippers.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-lg shadow-md">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-semibold text-gray-800">What payment methods do you accept?</span>
+                            <i class="fas fa-chevron-down text-gray-500 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, and business accounts can pay by ACH transfer or be invoiced monthly for regular shipments.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-lg shadow-md">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-semibold text-gray-800">Do you offer refunds?</span>
+                            <i class="fas fa-chevron-down text-gray-500 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">Yes, we offer full refunds for packages that are significantly delayed due to our error, lost, or damaged. Refund requests must be made within 30 days of the scheduled delivery date.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Services -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Business Services</h2>
+                
+                <div class="space-y-4">
+                    <div class="faq-item bg-white rounded-lg shadow-md">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-semibold text-gray-800">Do you offer business accounts?</span>
+                            <i class="fas fa-chevron-down text-gray-500 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">Yes, we offer business accounts with volume discounts, monthly invoicing, API integration, bulk shipping tools, and dedicated account management. Contact our sales team to learn more about business solutions.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-lg shadow-md">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-semibold text-gray-800">Can I integrate CourierDash with my e-commerce platform?</span>
+                            <i class="fas fa-chevron-down text-gray-500 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">Yes, we offer API integration and have plugins for popular e-commerce platforms including Shopify, WooCommerce, Magento, and BigCommerce. Our technical team can help with custom integrations.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-lg shadow-md">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300" onclick="toggleFAQ(this)">
+                            <span class="text-lg font-semibold text-gray-800">Do you provide insurance for packages?</span>
+                            <i class="fas fa-chevron-down text-gray-500 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">All packages include basic coverage up to $100. Additional insurance is available for high-value items up to $5,000. Insurance costs vary based on declared value and can be added during the booking process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Still Have Questions -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Still Have Questions?</h2>
+            <p class="text-xl mb-8">Can't find the answer you're looking for? Our support team is here to help.</p>
+            
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition duration-300 font-semibold">
+                    Contact Support
+                </a>
+                <a href="help.html" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-blue-600 transition duration-300 font-semibold">
+                    Visit Help Center
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shipping-fast text-2xl text-blue-400 mr-2"></i>
+                        <span class="text-xl font-bold">CourierDash</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Fast, reliable courier services with real-time tracking and secure delivery.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="services.html" class="hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="pricing.html" class="hover:text-white transition duration-300">Pricing</a></li>
+                        <li><a href="tracking.html" class="hover:text-white transition duration-300">Track Package</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="help.html" class="hover:text-white transition duration-300">Help Center</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition duration-300">FAQ</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition duration-300">Contact Us</a></li>
+                        <li><a href="privacy.html" class="hover:text-white transition duration-300">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-phone mr-2"></i> 1-800-COURIER</p>
+                        <p><i class="fas fa-envelope mr-2"></i> support@courierdash.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> 123 Delivery St, City, State 12345</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 CourierDash. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFAQ(button) {
+            const faqItem = button.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = button.querySelector('i');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').classList.remove('open');
+                    item.querySelector('i').classList.remove('fa-chevron-up');
+                    item.querySelector('i').classList.add('fa-chevron-down');
+                }
+            });
+            
+            // Toggle current FAQ item
+            faqItem.classList.toggle('active');
+            answer.classList.toggle('open');
+            
+            if (answer.classList.contains('open')) {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+    </script>
+</body>
+</html>

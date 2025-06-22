@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - CourierDash</title>
+    <meta name="description" content="Get help with using CourierDash delivery services. Find guides, tutorials, and support information.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .help-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .help-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <i class="fas fa-shipping-fast text-3xl text-blue-600 mr-3"></i>
+                    <span class="text-2xl font-bold text-gray-800">CourierDash</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Home</a>
+                    <a href="services.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Services</a>
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Pricing</a>
+                    <a href="tracking.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Track Package</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600 transition duration-300">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600 transition duration-300">Contact</a>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="../index.php" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Help Center</h1>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Find answers to your questions and get the most out of CourierDash</p>
+            
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto">
+                <div class="relative">
+                    <input type="text" placeholder="Search for help topics..." 
+                           class="w-full px-6 py-4 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-white">
+                    <button class="absolute right-2 top-2 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Help Categories -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Browse Help Topics</h2>
+                <p class="text-xl text-gray-600">Choose a category to find the answers you need</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Getting Started -->
+                <div class="help-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="text-blue-600 text-4xl mb-4">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Getting Started</h3>
+                    <p class="text-gray-600 mb-6">Learn the basics of using CourierDash for your first delivery</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Creating your first shipment</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Setting up your profile</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Understanding pricing</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Payment methods</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tracking & Delivery -->
+                <div class="help-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="text-green-600 text-4xl mb-4">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Tracking & Delivery</h3>
+                    <p class="text-gray-600 mb-6">Everything about tracking your packages and delivery options</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">How to track your package</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Delivery time estimates</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Delivery notifications</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Failed delivery attempts</a></li>
+                    </ul>
+                </div>
+
+                <!-- Account Management -->
+                <div class="help-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="text-purple-600 text-4xl mb-4">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Account Management</h3>
+                    <p class="text-gray-600 mb-6">Manage your account settings and preferences</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Updating profile information</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Managing addresses</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Password and security</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Notification preferences</a></li>
+                    </ul>
+                </div>
+
+                <!-- Billing & Payments -->
+                <div class="help-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="text-yellow-600 text-4xl mb-4">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Billing & Payments</h3>
+                    <p class="text-gray-600 mb-6">Information about billing, payments, and invoices</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Payment methods</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Invoice explanations</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Refund policy</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Billing disputes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Business Solutions -->
+                <div class="help-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Business Solutions</h3>
+                    <p class="text-gray-600 mb-6">Help for business customers and enterprise features</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">API documentation</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Bulk shipping</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Integration guides</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Custom solutions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Technical Support -->
+                <div class="help-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="text-indigo-600 text-4xl mb-4">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Technical Support</h3>
+                    <p class="text-gray-600 mb-6">Technical issues and troubleshooting guides</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">App troubleshooting</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Browser compatibility</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">Mobile app issues</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300">System status</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Articles -->
+    <section class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Popular Help Articles</h2>
+                <p class="text-xl text-gray-600">Most frequently accessed help topics</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">How to create your first shipment</h3>
+                    <p class="text-gray-600 mb-4">Step-by-step guide to booking your first delivery with CourierDash</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read more →</a>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Understanding delivery time estimates</h3>
+                    <p class="text-gray-600 mb-4">Learn how we calculate delivery times and what factors affect them</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read more →</a>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">What to do if your package is delayed</h3>
+                    <p class="text-gray-600 mb-4">Steps to take when your delivery doesn't arrive on time</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read more →</a>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Setting up payment methods</h3>
+                    <p class="text-gray-600 mb-4">Guide to adding and managing your payment options</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Support -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Still Need Help?</h2>
+            <p class="text-xl mb-8">Our support team is here to help you with any questions</p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+                    <i class="fas fa-comments text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Live Chat</h3>
+                    <p class="mb-4">Chat with our support team</p>
+                    <button class="bg-white text-blue-600 px-6 py-2 rounded-lg hover:bg-gray-100 transition duration-300">
+                        Start Chat
+                    </button>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+                    <i class="fas fa-envelope text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Email Support</h3>
+                    <p class="mb-4">Get help via email</p>
+                    <a href="contact.html" class="bg-white text-blue-600 px-6 py-2 rounded-lg hover:bg-gray-100 transition duration-300 inline-block">
+                        Send Email
+                    </a>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+                    <i class="fas fa-phone text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Phone Support</h3>
+                    <p class="mb-4">Call us directly</p>
+                    <a href="tel:1-800-COURIER" class="bg-white text-blue-600 px-6 py-2 rounded-lg hover:bg-gray-100 transition duration-300 inline-block">
+                        Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shipping-fast text-2xl text-blue-400 mr-2"></i>
+                        <span class="text-xl font-bold">CourierDash</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Fast, reliable courier services with real-time tracking and secure delivery.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="services.html" class="hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="pricing.html" class="hover:text-white transition duration-300">Pricing</a></li>
+                        <li><a href="tracking.html" class="hover:text-white transition duration-300">Track Package</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="help.html" class="hover:text-white transition duration-300">Help Center</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition duration-300">FAQ</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition duration-300">Contact Us</a></li>
+                        <li><a href="privacy.html" class="hover:text-white transition duration-300">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-phone mr-2"></i> 1-800-COURIER</p>
+                        <p><i class="fas fa-envelope mr-2"></i> support@courierdash.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> 123 Delivery St, City, State 12345</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 CourierDash. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

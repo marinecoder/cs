@@ -24,6 +24,30 @@ if(!isset($_SESSION['csrf_token'])) {
 // Initialize router
 $router = new Router();
 
+// Handle post-installation special redirects
+if (isset($_GET['admin']) && $_GET['admin'] == '1') {
+    // Redirect new admin to login with pre-filled admin context
+    Router::renderWithLayout('auth/login', [
+        'title' => 'Admin Login - Courier Dash',
+        'isAdminLogin' => true,
+        'message' => 'Welcome! Please login with your admin credentials to access the dashboard.',
+        'messageType' => 'info'
+    ], 'auth');
+    exit;
+}
+
+if (isset($_GET['user']) && $_GET['user'] == '1') {
+    // Redirect to user registration/login page
+    Router::renderWithLayout('auth/login', [
+        'title' => 'User Login - Courier Dash',
+        'isUserLogin' => true,
+        'message' => 'Create an account or login to start shipping with Courier Dash.',
+        'messageType' => 'info',
+        'showRegisterPrompt' => true
+    ], 'auth');
+    exit;
+}
+
 // Public routes
 $router->get('/', function() {
     if(Auth::isLoggedIn()) {
